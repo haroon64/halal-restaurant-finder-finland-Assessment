@@ -6,7 +6,7 @@ import NearMeIcon from '@mui/icons-material/NearMe';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import './Header.css';
 
-export default function Header() {
+export default function Header({  setSearchQuery , restaurants }) {
   return (
     <header className="header">
       {/* Left Side */}
@@ -22,7 +22,10 @@ export default function Header() {
 
         {/* Right Side */}
         <div className="right">
-            <SearchInput />
+            <SearchInput
+            // query={searchQuery} 
+            restaurants={restaurants}
+            setQuery={setSearchQuery}  />
             <div className="near-btn">
             <p sx={{ fontSize: 10 }}>Near Me</p>
                 <NearMeIcon  sx={{ fontSize: 15 }} />

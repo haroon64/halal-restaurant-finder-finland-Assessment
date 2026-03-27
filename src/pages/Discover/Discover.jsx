@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Box, 
   Typography, 
-  Button, 
-  List, 
-  ListItem, 
-  ListItemButton, 
-  ListItemIcon, 
-  ListItemText, 
+   
   Divider,
   Container,
   Grid,
@@ -58,24 +53,15 @@ const restaurantData = [
 
 ];
 
-export default function Discover() {
+export default function Discover({ searchQuery , restaurants, loading, error  }) {
     // const [restaurants, setRestaurants] = useState([]);
     // const [loading, setLoading] = useState(false);
     // const [error, setError] = useState(null);
 
-    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZ5ewZpT_FcAuxKGMpe_MbX5oKwAvZyunvXDC6qvwAy_h5tlzVAVYAZK1Y7KvZ4S08XXZCLfp9Ssri/pub?output=csv";
 
-    const { restaurants, loading, error } = useRestaurants(csvUrl);
-    // console.log('Restaurants from hook:', restaurants);
-
-    // if (loading) {
-    //     return <CircularProgress sx={{ m: 4 }} />;
-    // }
-
-    // if (error) {
-    //     return <Typography color="error">{error}</Typography>;
-    // }
-        
+    const filteredRestaurants = restaurants.filter((r) =>
+    r.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );       
 
     return (
     <Box sx={{display: 'flex', flexDirection: 'row', bgcolor: '#f0f2f5',  } }>
@@ -97,10 +83,10 @@ export default function Discover() {
                         indicatorColor="secondary"
                         aria-label="secondary tabs example"
                         >
-                        <Tab value="one" label="Turkish" />
-                        <Tab value="two" label="Arab" />
-                        <Tab value="three" label="Pakistani" />
-                        <Tab value="four" label="Open Now" />
+                        <Tab value="Turkish" label="Turkish" />
+                        <Tab value="Arab" label="Arab" />
+                        <Tab value="Pakistani" label="Pakistani" />
+                        <Tab value="Open Now" label="Open Now" />
                         </Tabs>
 
                 </Box>
@@ -121,21 +107,22 @@ export default function Discover() {
                 >
                 <Container sx={{ py: 4 }}>
                     <Grid container spacing={3}>
-                    {restaurants.map((item) => (
-                        <Grid  key={item.id}>
-                        <RestaurantCard restaurant={item} />
-                        </Grid>
-                    ))}
+                   {filteredRestaurants.length > 0 ? (
+                    filteredRestaurants.map((r, i) => (
+                    <RestaurantCard key={i} restaurant={r} />
+                    ))
+                ) : (
+                    <Typography>No results found</Typography>
+                )}
                     </Grid>
                 </Container>
                 </Box>)}
 
             </Box>
 
-            
-                <RestaurantMap/>
+           <RestaurantMap restaurants={filteredRestaurants} />
 
 
         </Box>
     );
-}
+};

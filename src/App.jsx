@@ -1,18 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
-import Discover from './pages/Discover';
-import Favorites from './pages/Favorites';
-import Recent from './pages/Recent';
-// import Navbar from './components/Navigation/Navbar';
+import Discover from './pages/Discover/Discover';
+import Header from './components/header/header';
+import SideNavBar from './components/sidebar/SideNavBar';
+import './App.css';
 
 function App() {
   return (
     <div className="app-container">
-      <Navbar /> {/* Stays visible on all pages */}
+      <Header className="header" />
+      <SideNavBar className="sidenavbar"/>
       <Routes>
         <Route path="/" element={<Discover />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/recent" element={<Recent />} />
       </Routes>
     </div>
   )
 }
+
+export default App;

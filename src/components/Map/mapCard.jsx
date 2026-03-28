@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box, Typography, Chip, Button, Divider } from '@mui/material';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import React from "react";
+import { Box, Typography, Chip, Button, Divider } from "@mui/material";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 /**
  * MapCard — rendered as an HTML string injected into a Leaflet popup.
@@ -14,9 +14,9 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 // ─── Pure HTML string for Leaflet popup ─────────────────────────────────────
 export function mapCardHTML(r) {
-  const isFullyHalal = r.halalStatus === 'Fully Halal';
-  const halalColor   = isFullyHalal ? '#2e7d32' : '#ed6c02';
-  const halalBg      = isFullyHalal ? '#edf7ee' : '#fff4ec';
+  const isFullyHalal = r.halal_status === "Fully Halal";
+  const halalColor = isFullyHalal ? "#2e7d32" : "#ed6c02";
+  const halalBg = isFullyHalal ? "#edf7ee" : "#fff4ec";
 
   return `
     <div style="
@@ -44,7 +44,7 @@ export function mapCardHTML(r) {
             background:${halalBg}; color:${halalColor};
             border:1px solid ${halalColor}44;
           ">
-            ✓ ${r.halalStatus}
+            ✓ ${r.halal_status}
           </span>
         </div>
 
@@ -100,58 +100,93 @@ export function mapCardHTML(r) {
   `;
 }
 
-
 // ─── React component version (for sidebars, lists, etc.) ────────────────────
 export default function MapCard({ restaurant: r, onViewDetails }) {
   if (!r) return null;
-  const isFullyHalal = r.halalStatus === 'Fully Halal';
-  const halalColor   = isFullyHalal ? '#2e7d32' : '#ed6c02';
-  const halalBg      = isFullyHalal ? '#edf7ee' : '#fff4ec';
+  const isFullyHalal = r.halalStatus === "Fully Halal";
+  const halalColor = isFullyHalal ? "#2e7d32" : "#ed6c02";
+  const halalBg = isFullyHalal ? "#edf7ee" : "#fff4ec";
 
   return (
-    <Box sx={{
-      borderRadius: '14px',
-      overflow: 'hidden',
-      bgcolor: 'background.paper',
-      boxShadow: '0 2px 16px rgba(0,0,0,0.08)',
-      border: '1px solid',
-      borderColor: 'divider',
-    }}>
+    <Box
+      sx={{
+        borderRadius: "14px",
+        overflow: "hidden",
+        bgcolor: "background.paper",
+        boxShadow: "0 2px 16px rgba(0,0,0,0.08)",
+        border: "1px solid",
+        borderColor: "divider",
+      }}
+    >
       {/* Accent bar */}
-      <Box sx={{ height: 4, background: `linear-gradient(90deg, ${halalColor}, ${halalColor}88)` }} />
+      <Box
+        sx={{
+          height: 4,
+          background: `linear-gradient(90deg, ${halalColor}, ${halalColor}88)`,
+        }}
+      />
 
       <Box sx={{ p: 2 }}>
         {/* Name + badge */}
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 1, mb: 0.75 }}>
-          <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1.3, color: 'text.primary' }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: 1,
+            mb: 0.75,
+          }}
+        >
+          <Typography
+            variant="subtitle1"
+            sx={{ fontWeight: 700, lineHeight: 1.3, color: "text.primary" }}
+          >
             {r.name}
           </Typography>
           <Chip
             size="small"
             label={r.halalStatus}
             icon={<VerifiedIcon style={{ fontSize: 12, color: halalColor }} />}
-            sx={{ bgcolor: halalBg, color: halalColor, fontWeight: 600, fontSize: 10, border: `1px solid ${halalColor}44`, height: 22 }}
+            sx={{
+              bgcolor: halalBg,
+              color: halalColor,
+              fontWeight: 600,
+              fontSize: 10,
+              border: `1px solid ${halalColor}44`,
+              height: 22,
+            }}
           />
         </Box>
 
         {/* City */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 1.5 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, mb: 1.5 }}>
           <LocationOnIcon sx={{ fontSize: 14, color: halalColor }} />
-          <Typography variant="caption" color="text.secondary">{r.city}</Typography>
+          <Typography variant="caption" color="text.secondary">
+            {r.city}
+          </Typography>
         </Box>
 
         <Divider sx={{ mb: 1.5 }} />
 
         {/* Address */}
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-start', mb: 1 }}>
-          <LocationOnIcon sx={{ fontSize: 15, color: 'text.disabled', mt: '1px' }} />
-          <Typography variant="caption" color="text.secondary">{r.address}</Typography>
+        <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start", mb: 1 }}>
+          <LocationOnIcon
+            sx={{ fontSize: 15, color: "text.disabled", mt: "1px" }}
+          />
+          <Typography variant="caption" color="text.secondary">
+            {r.address}
+          </Typography>
         </Box>
 
         {/* Cuisine */}
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 2 }}>
-          <LocalDiningIcon sx={{ fontSize: 15, color: 'text.disabled' }} />
-          <Chip label={r.cuisine} size="small" variant="outlined" sx={{ fontSize: 11, height: 20 }} />
+        <Box sx={{ display: "flex", gap: 1, alignItems: "center", mb: 2 }}>
+          <LocalDiningIcon sx={{ fontSize: 15, color: "text.disabled" }} />
+          <Chip
+            label={r.cuisine}
+            size="small"
+            variant="outlined"
+            sx={{ fontSize: 11, height: 20 }}
+          />
         </Box>
 
         <Button
@@ -159,7 +194,13 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
           variant="contained"
           endIcon={<OpenInNewIcon sx={{ fontSize: 14 }} />}
           onClick={() => onViewDetails?.(r)}
-          sx={{ borderRadius: '10px', bgcolor: '#1a1a1a', textTransform: 'none', fontWeight: 600, '&:hover': { bgcolor: '#333' } }}
+          sx={{
+            borderRadius: "10px",
+            bgcolor: "#1a1a1a",
+            textTransform: "none",
+            fontWeight: 600,
+            "&:hover": { bgcolor: "#333" },
+          }}
         >
           View Details
         </Button>

@@ -4,9 +4,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 15px 30px; */
+  padding: 15px;
   background-color: #7fc4b2;
-  color: rgb(14, 158, 79);
+  color: #00491b
 }
 
 /* LEFT SIDE */
@@ -19,6 +19,7 @@
 .logo {
   font-size: 22px;
   font-weight: bold;
+  
 }
 
 /* NAV LINKS */
@@ -76,14 +77,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  
-
 }
 
 .near-btn:hover {
-    background-color: #16a34a;
+  background-color: #16a34a;
 }
-
 
 /* NEW - VERY IMPORTANT */
 .search-container {
@@ -122,14 +120,14 @@
 .search-icon-btn:hover .search-icon {
   color: #22c55e;
 }
-.search-dropdown{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 20px 20px;
-    z-index: 1000;
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  z-index: 1000;
 }

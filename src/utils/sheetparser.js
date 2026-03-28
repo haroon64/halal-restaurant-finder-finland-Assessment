@@ -45,7 +45,7 @@ const data = lines.slice(1).map(line => {
         lat: parseFloat(obj['lat']) || null,
         longi: parseFloat(obj['lng']) || null,
         cuisine: obj['cuisine'],
-        halalStatus: obj['halal_status'],
+        halal_status: obj['halal_status'],
         phone: obj['phone'],
         website: obj['website'],
         timings: obj['hours']

@@ -1,12 +1,12 @@
 // src/components/Header.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import SearchInput from './search';
-import NearMeIcon from '@mui/icons-material/NearMe';
-import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
-import './Header.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import SearchInput from "./search";
+import NearMeIcon from "@mui/icons-material/NearMe";
+import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
+import "./Header.css";
 
-export default function Header({  setSearchQuery , restaurants }) {
+export default function Header({ setSearchQuery, restaurants }) {
   return (
     <header className="header">
       {/* Left Side */}
@@ -20,18 +20,19 @@ export default function Header({  setSearchQuery , restaurants }) {
         </nav>
       </div>
 
-        {/* Right Side */}
-        <div className="right">
-            <SearchInput
-            // query={searchQuery} 
-            restaurants={restaurants}
-            setQuery={setSearchQuery}  />
-            <div className="near-btn">
-            <p sx={{ fontSize: 10 }}>Near Me</p>
-                <NearMeIcon  sx={{ fontSize: 15 }} />
-            </div>
-            <AccountCircleSharpIcon  sx={{ fontSize: '40px' }} />
-        </div>
+      {/* Right Side */}
+      <div className="right">
+        <SearchInput
+          // query={searchQuery}
+          restaurants={restaurants}
+          setQuery={setSearchQuery}
+        />
+        <button className="near-btn">
+          <NearMeIcon sx={{ fontSize: 15 }} />
+          <p sx={{ fontSize: 1 }}>Near Me</p>
+        </button>
+        <AccountCircleSharpIcon sx={{ fontSize: "40px" }} />
+      </div>
     </header>
-);
+  );
 }

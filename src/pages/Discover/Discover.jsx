@@ -63,7 +63,6 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
 
-  
     const matchesTab = tabValue === "All" || r.cuisine === tabValue;
 
     return matchesSearch && matchesTab;
@@ -105,9 +104,11 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
             variant="scrollable"
             scrollButtons="auto"
             sx={{
+              maxWidth: { sm: 400, md: "100%" },
+              minwidth: "200px",
               width: "500px",
-              "& .MuiTabs-indicator": { display: "none" }, // Remove the default underline
-              "& .MuiTabs-flexContainer": { gap: 1.5 }, // Add spacing between tab buttons
+              "& .MuiTabs-indicator": { display: "none" },
+              "& .MuiTabs-flexContainer": { gap: 1.5 }, 
             }}
           >
             {["Turkish", "Arab", "Pakistani", "Bangladeshi", "All"].map(

@@ -41,13 +41,14 @@ export default function RestaurantCard({ restaurant }) {
   return (
     <Card
       sx={{
-        width: "100%",
+        width: "100%", // Takes full width of the Grid item
+        maxWidth: { xs: "100%", sm: 400, md: "100%" }, // Prevents huge cards on tablets
+        mx: "auto",
         borderRadius: "16px",
         boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
         overflow: "hidden",
         transition: "transform 0.2s",
         cursor: "pointer",
-
         "&:hover": { transform: "translateY(-4px)" },
       }}
     >

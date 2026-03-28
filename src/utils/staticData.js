@@ -9,7 +9,7 @@ export const staticRestaurants = [
     halal_status: "Fully Halal",
     phone: "468897305",
     website: "https://social.quandoo.com/en/qr",
-    hours: "10:30 am – 5 pm",
+    timings: "10:30 am – 5 pm",
     image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
   },
   {
@@ -22,7 +22,7 @@ export const staticRestaurants = [
     halal_status: "Halal Friendly",
     phone: "505578291",
     website: "http://bigbite.fi/",
-    hours: "11:00 am - 9:00 pm",
+    timings: "11:00 am - 9:00 pm",
     image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d"
   },
   {
@@ -35,7 +35,7 @@ export const staticRestaurants = [
     halal_status: "Fully Halal",
     phone: "401234567",
     website: "http://anatoliagrill.fi/",
-    hours: "12:00 pm - 11:00 pm",
+    timings: "12:00 pm - 11:00 pm",
     image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a"
   },
   {
@@ -48,7 +48,7 @@ export const staticRestaurants = [
     halal_status: "Fully Halal",
     phone: "409876543",
     website: "http://karachispice.fi/",
-    hours: "11:00 am - 10:00 pm",
+    timings: "11:00 am - 10:00 pm",
     image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a"
   },
   {
@@ -61,7 +61,7 @@ export const staticRestaurants = [
     halal_status: "Halal Friendly",
     phone: "408765432",
     website: "http://dhakadine.fi/",
-    hours: "12:00 pm - 9:00 pm",
+    timings: "12:00 pm - 9:00 pm",
     image: "https://images.unsplash.com/photo-1600891965053-3c3b1d6e9b8a"
   },
   {
@@ -74,7 +74,7 @@ export const staticRestaurants = [
     halal_status: "Halal Certified",
     phone: "407654321",
     website: "http://istanbulkebab.fi/",
-    hours: "11:00 am - 11:00 pm",
+    timings: "11:00 am - 11:00 pm",
     image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
   },
   {
@@ -87,7 +87,7 @@ export const staticRestaurants = [
     halal_status: "Halal Certified",
     phone: "406543210",
     website: "http://arabiannights.fi/",
-    hours: "1:00 pm - 12:00 am",
+    timings: "1:00 pm - 12:00 am",
     image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a"
   },
   {
@@ -100,7 +100,7 @@ export const staticRestaurants = [
     halal_status: "Halal Certified",
     phone: "405432109",
     website: "http://lahoretandoor.fi/",
-    hours: "12:00 pm - 10:00 pm",
+    timings: "12:00 pm - 10:00 pm",
     image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a"
   },
   {
@@ -113,7 +113,7 @@ export const staticRestaurants = [
     halal_status: "Fully Halal",
     phone: "404321098",
     website: "http://dhakacurry.fi/",
-    hours: "11:30 am - 9:30 pm",
+    timings: "11:30 am - 9:30 pm",
     image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d"
   },
   {
@@ -126,7 +126,7 @@ export const staticRestaurants = [
     halal_status: "Halal Certified",
     phone: "403210987",
     website: "http://meccagrill.fi/",
-    hours: "12:00 pm - 11:00 pm",
+    timings: "12:00 pm - 11:00 pm",
     image: "https://images.unsplash.com/photo-1600891965053-3c3b1d6e9b8a"
   },
   {
@@ -139,7 +139,7 @@ export const staticRestaurants = [
     halal_status: "Fully Halal",
     phone: "402109876",
     website: "http://damascusdelights.fi/",
-    hours: "1:00 pm - 11:00 pm",
+    timings: "1:00 pm - 11:00 pm",
     image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a"
   },
   {
@@ -152,7 +152,7 @@ export const staticRestaurants = [
     halal_status: "Fully Halal",
     phone: "401098765",
     website: "http://turkutikka.fi/",
-    hours: "12:00 pm - 10:00 pm",
+    timings: "12:00 pm - 10:00 pm",
     image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a"
   },
   {
@@ -165,7 +165,7 @@ export const staticRestaurants = [
     halal_status: "Halal Certified",
     phone: "400987654",
     website: "http://gaziantepgrill.fi/",
-    hours: "11:00 am - 11:00 pm",
+    timings: "11:00 am - 11:00 pm",
     image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
   },
   {
@@ -178,7 +178,7 @@ export const staticRestaurants = [
     halal_status: "Halal Certified",
     phone: "399876543",
     website: "http://sylhetspice.fi/",
-    hours: "12:00 pm - 9:00 pm",
+    timings: "12:00 pm - 9:00 pm",
     image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d"
   },
 ]

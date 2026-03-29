@@ -81,7 +81,7 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
               "& .MuiTabs-flexContainer": { gap: 1.5 },
             }}
           >
-            {["All","Turkish", "Arab", "Pakistani", "Bangladeshi" ].map(
+            {["All", "Turkish", "Arab", "Pakistani", "Bangladeshi"].map(
               (label) => (
                 <Tab
                   key={label}
@@ -113,7 +113,17 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
           </Tabs>
         </Box>
         {loading ? (
-          <CircularProgress sx={{ m: 4 }} />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "60vh", // Adjust based on your header height
+              width: "100%",
+            }}
+          >
+            <CircularProgress sx={{ color: "#00491b" }} />
+          </Box>
         ) : error ? (
           <Typography color="error">{error}</Typography>
         ) : (

@@ -53,8 +53,8 @@ export default function RestaurantCard({ restaurant }) {
     <Card
       onClick={handleClick} // Navigate to detail page on click
       sx={{
-        width: "100%", // Takes full width of the Grid item
-        maxWidth: { xs: "100%", sm: 400, md: "100%" }, // Prevents huge cards on tablets
+        width: "100%", 
+        maxWidth: { xs: "100%", sm: 400, md: "100%" },
         mx: "auto",
         borderRadius: "16px",
         boxShadow: "0 4px 20px rgba(0,0,0,0.08)",

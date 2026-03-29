@@ -1,16 +1,53 @@
-# React + Vite
+# Halal Restaurant Finder Finland
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite application to help users find halal restaurants in Finland.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js (v16 or higher)
+- npm or yarn
 
-## React Compiler
+## Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone the repository
+2. Navigate to the project directory
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-## Expanding the ESLint configuration
+## Running Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Development Server
+
+Start the development server with HMR:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Build for Production
+
+Create an optimized production build:
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+Preview the production build locally:
+```bash
+npm run preview
+```
+
+## Project Setup
+
+This template uses:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) with [Oxc](https://oxc.rs)
+- ESLint for code quality
+
+## Development Notes
+
+For production applications, consider enabling TypeScript with type-aware lint rules. See [TypeScript template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for setup instructions.
+

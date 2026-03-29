@@ -144,7 +144,7 @@ export default function RestaurantMap({ restaurants = [] }) {
       });
 
       if (validBounds.length === 1) {
-        map.setView(validBounds[0], 15, { animate: true });
+      setView(validBounds[0], 15, { animate: true });
       } else if (validBounds.length > 1) {
         map.fitBounds(validBounds, {
           padding: [isMobile ? 48 : 64, isMobile ? 48 : 64],

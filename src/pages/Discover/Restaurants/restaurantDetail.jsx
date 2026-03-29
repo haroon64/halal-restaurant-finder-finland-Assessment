@@ -55,7 +55,6 @@ export default function RestaurantDetailPage({ restaurants }) {
   const halalColor = isFullyHalal ? "#2e7d32" : "#ed6c02";
   const halalBg = isFullyHalal ? "#edf7ee" : "#fff4ec";
 
-  // ─── Reusable detail content block ──────────────────────────────────────────
   const DetailContent = (
     <Box
       sx={{
@@ -313,7 +312,8 @@ export default function RestaurantDetailPage({ restaurants }) {
               py: 1.3,
               borderColor: "#ddd",
               color: "text.primary",
-              "&:hover": { borderColor: "#1a1a1a", bgcolor: "transparent" },
+              bgcolor: "#cacbcc",
+              "&:hover": { borderColor: "#1a1a1a", bgcolor: "" },
             }}
           >
             Visit Website
@@ -327,7 +327,7 @@ export default function RestaurantDetailPage({ restaurants }) {
     return (
       <Box
         sx={{
-          height: "100vh",
+          height: "90vh",
           width: "100vw",
           overflowY: "scroll", // Force scroll capability
           overflowX: "hidden",
@@ -380,7 +380,6 @@ export default function RestaurantDetailPage({ restaurants }) {
         },
       }}
     >
-      {/* Left — sticky map (50%) */}
       <Box sx={{ width: "50%", flexShrink: 0, position: "relative" }}>
         <Box sx={{ position: "absolute", inset: 16 }}>
           <Box

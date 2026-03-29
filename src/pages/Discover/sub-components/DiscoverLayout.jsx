@@ -1,7 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { Container, Box, IconButton } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import SideNavBar from "../../../components/sidebar/SideNavBar";
 
 export default function RestaurantLayout() {
   return (

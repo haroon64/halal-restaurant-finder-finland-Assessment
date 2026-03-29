@@ -4,15 +4,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useNavigate } from "react-router-dom";
 
-/**
- * MapCard — rendered as an HTML string injected into a Leaflet popup.
- * Call MapCard.toHTML(restaurant) to get the popup string.
- *
- * Also exported as a React component for use outside the map (e.g. sidebars).
- */
-
-// ─── Pure HTML string for Leaflet popup ─────────────────────────────────────
 export function mapCardHTML(r) {
   const isFullyHalal = r.halal_status === "Fully Halal";
   const halalColor = isFullyHalal ? "#2e7d32" : "#ed6c02";
@@ -101,10 +94,14 @@ export function mapCardHTML(r) {
 }
 
 export default function MapCard({ restaurant: r, onViewDetails }) {
+  const navigate = useNavigate();
   if (!r) return null;
   const isFullyHalal = r.halalStatus === "Fully Halal";
   const halalColor = isFullyHalal ? "#2e7d32" : "#ed6c02";
   const halalBg = isFullyHalal ? "#edf7ee" : "#fff4ec";
+  const handleClick = () => {
+    navigate(`/restaurant/${encodeURIComponent(r.name)}`);
+  };
 
   return (
     <Box
@@ -185,9 +182,9 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
 
         <Button
           fullWidth
+          onClick={() => handleClick()}
           variant="contained"
           endIcon={<OpenInNewIcon sx={{ fontSize: 14 }} />}
-          onClick={() => onViewDetails?.(r)}
           sx={{
             borderRadius: "10px",
             bgcolor: "#1a1a1a",

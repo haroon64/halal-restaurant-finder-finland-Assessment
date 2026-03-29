@@ -81,7 +81,7 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
               "& .MuiTabs-flexContainer": { gap: 1.5 },
             }}
           >
-            {["Turkish", "Arab", "Pakistani", "Bangladeshi", "All"].map(
+            {["All","Turkish", "Arab", "Pakistani", "Bangladeshi" ].map(
               (label) => (
                 <Tab
                   key={label}

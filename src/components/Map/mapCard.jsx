@@ -100,7 +100,6 @@ export function mapCardHTML(r) {
   `;
 }
 
-// ─── React component version (for sidebars, lists, etc.) ────────────────────
 export default function MapCard({ restaurant: r, onViewDetails }) {
   if (!r) return null;
   const isFullyHalal = r.halalStatus === "Fully Halal";
@@ -118,7 +117,6 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
         borderColor: "divider",
       }}
     >
-      {/* Accent bar */}
       <Box
         sx={{
           height: 4,
@@ -127,7 +125,6 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
       />
 
       <Box sx={{ p: 2 }}>
-        {/* Name + badge */}
         <Box
           sx={{
             display: "flex",
@@ -158,7 +155,6 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
           />
         </Box>
 
-        {/* City */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, mb: 1.5 }}>
           <LocationOnIcon sx={{ fontSize: 14, color: halalColor }} />
           <Typography variant="caption" color="text.secondary">
@@ -168,7 +164,6 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
 
         <Divider sx={{ mb: 1.5 }} />
 
-        {/* Address */}
         <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start", mb: 1 }}>
           <LocationOnIcon
             sx={{ fontSize: 15, color: "text.disabled", mt: "1px" }}
@@ -178,7 +173,6 @@ export default function MapCard({ restaurant: r, onViewDetails }) {
           </Typography>
         </Box>
 
-        {/* Cuisine */}
         <Box sx={{ display: "flex", gap: 1, alignItems: "center", mb: 2 }}>
           <LocalDiningIcon sx={{ fontSize: 15, color: "text.disabled" }} />
           <Chip

@@ -2,7 +2,7 @@
 .leaflet-popup-content-wrapper {
   border-radius: 12px !important;
   padding: 0 !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 
 .leaflet-popup-content {
@@ -13,7 +13,6 @@
   box-shadow: none !important;
 }
 
-/* Custom Marker Animation */
 .custom-marker {
   transition: all 0.3s ease;
 }

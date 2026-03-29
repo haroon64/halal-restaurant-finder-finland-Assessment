@@ -19,9 +19,11 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FlatwareRoundedIcon from "@mui/icons-material/FlatwareRounded";
+import { useNavigate } from "react-router-dom";
 
 export default function RestaurantCard({ restaurant }) {
   // Use the data passed from the parent
+  const navigate = useNavigate();
   const {
     id,
     name,
@@ -35,11 +37,21 @@ export default function RestaurantCard({ restaurant }) {
     website,
     timings,
   } = restaurant;
+  console.log("Rendering card for:", id);
 
   const [isFavorited, setIsFavorited] = React.useState(false);
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation(); // This prevents the Card's handleClick from firing
+    setIsFavorited(!isFavorited);
+  };
+
+  const handleClick = () => {
+    navigate(`/restaurant/${encodeURIComponent(restaurant.name)}`);
+  };
 
   return (
     <Card
+      onClick={handleClick} // Navigate to detail page on click
       sx={{
         width: "100%", // Takes full width of the Grid item
         maxWidth: { xs: "100%", sm: 400, md: "100%" }, // Prevents huge cards on tablets
@@ -137,6 +149,7 @@ export default function RestaurantCard({ restaurant }) {
             variant="contained"
             href={website}
             target="_blank"
+            onClick={(e) => e.stopPropagation()}
             startIcon={<LanguageIcon />}
             sx={{
               borderRadius: "8px",
@@ -147,7 +160,7 @@ export default function RestaurantCard({ restaurant }) {
             Website
           </Button>
           <IconButton
-            onClick={() => setIsFavorited(!isFavorited)}
+            onClick={(e) => handleFavoriteClick(e)}
             sx={{
               border: "1px solid #e0e0e0",
               color: isFavorited ? "#d32f2f" : "#dfe2e6",

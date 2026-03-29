@@ -12,17 +12,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import MapCard, { mapCardHTML } from "../Map/mapCard";
 
 export default function RestaurantMap({ restaurants = [] }) {
-  console.log("Rendering Map with restaurants:", restaurants);
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef([]);
 
-  // Mobile bottom-sheet selected card
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // ─── Inject pulse keyframe + popup styles once ────────────────────────────
   useEffect(() => {
     if (document.getElementById("map-pulse-style")) return;
     const style = document.createElement("style");
@@ -53,9 +50,7 @@ export default function RestaurantMap({ restaurants = [] }) {
     document.head.appendChild(style);
   }, []);
 
-  // ─── Init / reinit map whenever restaurants change ────────────────────────
   useEffect(() => {
-    // Leaflet CSS
     if (!document.getElementById("leaflet-css")) {
       const link = document.createElement("link");
       link.id = "leaflet-css";
@@ -67,7 +62,6 @@ export default function RestaurantMap({ restaurants = [] }) {
     const initMap = () => {
       const L = window.L;
 
-      // Tear down previous instance
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
@@ -92,7 +86,6 @@ export default function RestaurantMap({ restaurants = [] }) {
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      // ── Place markers ──────────────────────────────────────────────────────
       markersRef.current = [];
       const validBounds = [];
 
@@ -103,39 +96,37 @@ export default function RestaurantMap({ restaurants = [] }) {
         const color = isFullyHalal ? "#2e7d32" : "#ed6c02";
         const ringColor = isFullyHalal ? "#2e7d3244" : "#ed6c0244";
 
-        // Animated pulse pin
         const icon = L.divIcon({
           html: `
-            <div style="position:relative;width:36px;height:36px;">
-              <span style="
-                position:absolute;top:50%;left:50%;
-                width:34px;height:34px;border-radius:50%;
-                background:${ringColor};
-                animation:mapPulse 2s ease-out infinite;
-              "></span>
-              <span style="
-                position:absolute;top:2px;left:50%;
-                transform:translateX(-50%) rotate(-45deg);
-                width:24px;height:24px;
-                background:${color};
-                border-radius:50% 50% 0 50%;
-                border:2.5px solid white;
-                box-shadow:0 4px 12px rgba(0,0,0,0.25);
-              "></span>
-            </div>`,
+        <div style="position:relative; width:40px; height:40px;">
+          <span style="
+            position:absolute; top:50%; left:50%;
+            width:40px; height:40px; border-radius:50%;
+            background:${ringColor};
+            animation:mapPulse 2s ease-out infinite;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+          "></span>
+          
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" 
+               style="position:absolute; z-index: 2; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));">
+            <path d="M12 21.35s-7-4.55-7-11.35a7 7 0 0 1 14 0c0 6.8-7 11.35-7 11.35z" 
+                  fill="${color}" stroke="white" stroke-width="1.5"/>
+            <circle cx="12" cy="10" r="3" fill="white" />
+          </svg>
+        </div>
+      `,
           className: "",
-          iconSize: [36, 36],
-          iconAnchor: [18, 30],
+          iconSize: [40, 40],
+          iconAnchor: [20, 40],
           popupAnchor: [0, -34],
         });
 
         const marker = L.marker([r.lat, r.longi], { icon });
 
         if (isMobile) {
-          // Mobile: tap → bottom sheet
           marker.on("click", () => setSelectedRestaurant(r));
         } else {
-          // Desktop: click → inline popup using mapCardHTML
           marker.bindPopup(mapCardHTML(r), {
             minWidth: 240,
             maxWidth: 260,
@@ -152,7 +143,6 @@ export default function RestaurantMap({ restaurants = [] }) {
         validBounds.push([r.lat, r.longi]);
       });
 
-      // ── Auto-fit map to all markers ────────────────────────────────────────
       if (validBounds.length === 1) {
         map.setView(validBounds[0], 15, { animate: true });
       } else if (validBounds.length > 1) {
@@ -164,7 +154,6 @@ export default function RestaurantMap({ restaurants = [] }) {
       }
     };
 
-    // Listen for "View Details" button inside HTML popup
     const handleCardDetails = (e) => {
       const r = restaurants.find((x) => String(x.id) === String(e.detail));
       if (r) setSelectedRestaurant(r);
@@ -189,7 +178,6 @@ export default function RestaurantMap({ restaurants = [] }) {
     };
   }, [restaurants, isMobile]);
 
-  // ─── Render ────────────────────────────────────────────────────────────────
   return (
     <Box
       sx={{
@@ -199,6 +187,7 @@ export default function RestaurantMap({ restaurants = [] }) {
         flexDirection: "column",
         gap: 1,
         py: 2,
+        px: { xs: 1, sm: 2 },
       }}
     >
       {/* Map */}
@@ -213,7 +202,6 @@ export default function RestaurantMap({ restaurants = [] }) {
         }}
       />
 
-      {/* Legend + count */}
       <Stack direction="row" alignItems="center" spacing={2} sx={{ px: 1 }}>
         {[
           { color: "#2e7d32", ring: "#2e7d3244", label: "Fully Halal" },
@@ -246,7 +234,6 @@ export default function RestaurantMap({ restaurants = [] }) {
         </Typography>
       </Stack>
 
-      {/* ── Mobile backdrop ── */}
       {selectedRestaurant && isMobile && (
         <Box
           onClick={() => setSelectedRestaurant(null)}
@@ -259,7 +246,6 @@ export default function RestaurantMap({ restaurants = [] }) {
         />
       )}
 
-      {/* ── Mobile bottom-sheet ── */}
       <Fade in={!!(selectedRestaurant && isMobile)}>
         <Box
           sx={{
@@ -277,7 +263,6 @@ export default function RestaurantMap({ restaurants = [] }) {
             display: selectedRestaurant && isMobile ? "block" : "none",
           }}
         >
-          {/* Drag handle */}
           <Box
             sx={{
               width: 36,

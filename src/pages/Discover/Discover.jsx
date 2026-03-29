@@ -12,44 +12,7 @@ import {
 import RestaurantCard from "../Discover/sub-components/Card";
 import RestaurantMap from "../../components/Map/map";
 import useRestaurants from "../../hooks/useRestaurants";
-const restaurantData = [
-  {
-    id: 1,
-    name: "Habibi Helsinki",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
-    rating: 4.8,
-    halalStatus: "Fully Halal",
-    address: "Urho Kekkosen katu 1",
-    city: "Helsinki",
-    phone: "+358 40 123 4567",
-    website: "https://habibi.fi",
-    timings: "11:00 - 21:00",
-  },
-  {
-    id: 2,
-    name: "Levant Bulevardi",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-    rating: 4.5,
-    halalStatus: "Halal Options",
-    address: "Bulevardi 15",
-    city: "Helsinki",
-    phone: "+358 40 987 6543",
-    website: "https://levant.fi",
-    timings: "10:30 - 20:00",
-  },
-  {
-    id: 3,
-    name: "Levant Bulevardi",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-    rating: 4.5,
-    halalStatus: "Halal Options",
-    address: "Bulevardi 15",
-    city: "Helsinki",
-    phone: "+358 40 987 6543",
-    website: "https://levant.fi",
-    timings: "10:30 - 20:00",
-  },
-];
+import SideNavBar from "../../components/sidebar/SideNavBar";
 
 export default function Discover({ searchQuery, restaurants, loading, error }) {
   const [tabValue, setTabValue] = React.useState("All");
@@ -69,8 +32,15 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
   });
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", bgcolor: "#f0f2f5" }}>
-      <Box sx={{ p: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row", // Keeps your internal items side-by-side
+        bgcolor: "#f0f2f5",
+      }}
+    >
+      <SideNavBar />
+      <Box sx={{ p: 2, maxWidth: "450px" }}>
         <Box
           sx={{
             mb: 2,
@@ -108,7 +78,7 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
               minwidth: "200px",
               width: "500px",
               "& .MuiTabs-indicator": { display: "none" },
-              "& .MuiTabs-flexContainer": { gap: 1.5 }, 
+              "& .MuiTabs-flexContainer": { gap: 1.5 },
             }}
           >
             {["Turkish", "Arab", "Pakistani", "Bangladeshi", "All"].map(
@@ -151,6 +121,7 @@ export default function Discover({ searchQuery, restaurants, loading, error }) {
             sx={{
               height: "80vh", // adjust to fit your layout, e.g. '600px'
               overflowY: "auto",
+
               // paddingBottom: "100px",
 
               pr: 1, // keeps scrollbar from overlapping cards

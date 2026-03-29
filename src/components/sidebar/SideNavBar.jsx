@@ -1,105 +1,157 @@
-import React from 'react';
-import { 
-  Box, 
-  Typography, 
-  Button, 
-  List, 
-  ListItem, 
-  ListItemButton, 
-  ListItemIcon, 
-  ListItemText, 
-  Divider 
-} from '@mui/material';
-import MosqueRoundedIcon from '@mui/icons-material/MosqueRounded';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import FlatwareRoundedIcon from '@mui/icons-material/FlatwareRounded';
-import AddLocationAltRoundedIcon from '@mui/icons-material/AddLocationAltRounded';
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+  Drawer,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
+
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import MosqueRoundedIcon from "@mui/icons-material/MosqueRounded";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import FlatwareRoundedIcon from "@mui/icons-material/FlatwareRounded";
+import AddLocationAltRoundedIcon from "@mui/icons-material/AddLocationAltRounded";
 
 export default function SideNavBar() {
-  // Navigation items array to keep code clean
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const [open, setOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("Restaurants");
+
   const navItems = [
-    { text: 'Restaurants', icon: <FlatwareRoundedIcon />, active: true },
-    { text: 'Mosque', icon: <MosqueRoundedIcon />, active: false },
-    { text: 'Favorites', icon: <FavoriteIcon />, active: false },
-    { text: 'Settings', icon: <SettingsOutlinedIcon />, active: false },
+    { text: "Restaurants", icon: <FlatwareRoundedIcon /> },
+    { text: "Mosque", icon: <MosqueRoundedIcon /> },
+    { text: "Favorites", icon: <FavoriteIcon /> },
+    { text: "Settings", icon: <SettingsOutlinedIcon /> },
   ];
 
-  return (
+  const sidebarContent = (
     <Box
-    className="sidenavbar"
-    //   sx={{
-    //     width: 280,
-    //     height: '90%',
-    //     bgcolor: '#f8f9fa', // Soft light gray background
-    //     borderRight: '1px solid #e0e0e0',
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     p: 3,
-    //     position: 'fixed',
-    //     // left: 0,
-    //     // top: 0,
-    //   }}
+      sx={{
+        width: 260,
+
+        bgcolor: "#f8f9fa",
+        display: "flex",
+        flexDirection: "column",
+        p: 3,
+      }}
     >
-      {/* Brand Logo Section */}
-      <Box sx={{ mb: 6, display: 'flex', alignItems: 'flex-start', gap: 1.5 ,flexDirection: 'column', textAlign: 'center'}}>
-   
-        <Typography variant="h5" sx={{ fontWeight: 800, color: '#1a1a1a', letterSpacing: '-0.5px' }}>
-          Nordic<span style={{ color: '#2e7d32' }}>Concierge</span>
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="h6" sx={{ fontWeight: 800 }}>
+          Nordic<span style={{ color: "#2e7d32" }}>Concierge</span>
         </Typography>
-         <Typography variant="h7" sx={{ fontWeight: 400, color: '#1a1a1a', letterSpacing: '-0.5px' }}>
-          Nordic Concierge
+        <Typography sx={{ fontWeight: 200, fontSize: 11, color: "#2e7d32" }}>
+          Halal FInder Finland
         </Typography>
       </Box>
 
-      {/* Navigation Links */}
       <List sx={{ flexGrow: 1 }}>
-        {navItems.map((item) => (
-          <ListItem key={item.text} disablePadding sx={{ mb: 1 }}>
-            <ListItemButton
-              sx={{
-                borderRadius: '12px',
-                py: 1.5,
-                backgroundColor: item.active ? '#e8f5e9' : 'transparent',
-                color: item.active ? '#2e7d32' : '#5f6368',
-                '&:hover': {
-                  backgroundColor: item.active ? '#e8f5e9' : '#f1f3f4',
-                },
-              }}
-            >
-              <ListItemIcon sx={{ color: item.active ? '#2e7d32' : '#5f6368', minWidth: 45 }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText 
-                primary={item.text} 
-                primaryTypographyProps={{ fontWeight: item.active ? 600 : 500, fontSize: '0.95rem' }} 
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {navItems.map((item) => {
+          const isActive = activeItem === item.text;
+
+          return (
+            <ListItem key={item.text} disablePadding sx={{ mb: 1 }}>
+              <ListItemButton
+                onClick={() => {
+                  setActiveItem(item.text);
+                  if (isMobile) setOpen(false);
+                }}
+                sx={{
+                  borderRadius: 2,
+                  py: 1.5,
+                  bgcolor: isActive ? "#e8f5e9" : "transparent",
+                  color: isActive ? "#2e7d32" : "#5f6368",
+                  "&:hover": {
+                    bgcolor: isActive ? "#e8f5e9" : "#f1f3f4",
+                  },
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    color: isActive ? "#2e7d32" : "#5f6368",
+                    minWidth: 40,
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+
+                <ListItemText
+                  primary={item.text}
+                  primaryTypographyProps={{
+                    fontWeight: isActive ? 600 : 500,
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
 
-      <Divider sx={{ my: 3 }} />
+      <Divider sx={{ my: 2 }} />
 
-      {/* Action Button Section */}
-      <Box>
-        <Button
-          fullWidth
-          variant="contained"
-          startIcon={<AddLocationAltRoundedIcon />}
+      <Button
+        fullWidth
+        variant="contained"
+        startIcon={<AddLocationAltRoundedIcon />}
+        sx={{
+          py: 1.2,
+          borderRadius: 2,
+          textTransform: "none",
+          fontWeight: 600,
+          bgcolor: "#2e7d32",
+          "&:hover": { bgcolor: "#1b5e20" },
+        }}
+      >
+        Add Restaurant
+      </Button>
+    </Box>
+  );
+
+  return (
+    <>
+      {isMobile && !open && (
+        <IconButton
+          onClick={() => setOpen(true)}
           sx={{
-            py: 1.5,
-            borderRadius: '12px',
-            textTransform: 'none',
-            fontWeight: 600,
-            boxShadow: 'none',
-            bgcolor: '#2e7d32',
-            '&:hover': { bgcolor: '#1b5e20', boxShadow: '0px 4px 12px rgba(46, 125, 50, 0.2)' }
+            position: "fixed",
+            top: "50%",
+            transform: "translateY(-50%)",
+            left: 0,
+            borderRadius: "0 10px 10px 0",
+            bgcolor: "#2e7d32",
+            color: "white",
+            "&:hover": { bgcolor: "#1b5e20" },
           }}
         >
-          Add Restaurant
-        </Button>
-      </Box>
-    </Box>
+          <KeyboardArrowRightIcon sx={{ fontSize: 12 }} />
+        </IconButton>
+      )}
+
+      {/* MOBILE DRAWER */}
+      {isMobile ? (
+        <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+          {sidebarContent}
+        </Drawer>
+      ) : (
+        <Box
+          sx={{
+            width: 260,
+            height: "100vh",
+            left: 0,
+            top: 0,
+          }}
+        >
+          {sidebarContent}
+        </Box>
+      )}
+    </>
   );
 }

@@ -1,41 +1,50 @@
-/* Reset body to ensure no weird gaps */
-body, html {
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
+/* APP LAYOUT */
 .app-container {
-  display: grid;
-  /* Columns: Sidebar is 280px, the rest is flexible */
-  grid-template-columns: 280px 1fr;
-  /* Rows: Header is 70px, the rest is flexible */
-  grid-template-rows: 70px 1fr;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  width: 100vw;
-  overflow: hidden; /* Prevents the whole screen from scrolling */
+  width: 100%;
+  overflow: hidden;
 }
 
+/* HEADER */
 .header {
-  /* Span across both columns (from sidebar to the end) */
-  grid-column: 1 / 3; 
-  grid-row: 1;
-  z-index: 1100; /* Higher than sidebar/map */
-  /* background-color: #ffffff; */
-  /* border-bottom: 1px solid #e0e0e0; */
+  flex-shrink: 0;
+  height: 64px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
 }
 
-.sidenavbar {
-  grid-column: 1;
-  grid-row: 2;
-  height: 100%;
-  border-right: 1px solid #e0e0e0;
-}
-
-/* This is the container where your <Routes> (Discover, Favorites) land */
+/* MAIN CONTENT */
 main {
-  grid-column: 2;
-  grid-row: 2;
-  overflow-y: auto; /* Only the content scrolls, not the nav! */
+  flex: 1;
+  overflow-y: auto;
   background-color: #fcfcfc;
+  padding: 16px;
+  display: flex;
+}
+
+/* SCROLLBAR (optional nice touch) */
+main::-webkit-scrollbar {
+  width: 6px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
 }

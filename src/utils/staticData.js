@@ -10,7 +10,7 @@ export const staticRestaurants = [
     phone: "468897305",
     website: "https://social.quandoo.com/en/qr",
     timings: "10:30 am – 5 pm",
-    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
   },
   {
     name: "Big Bite Konala",
@@ -23,7 +23,7 @@ export const staticRestaurants = [
     phone: "505578291",
     website: "http://bigbite.fi/",
     timings: "11:00 am - 9:00 pm",
-    image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d"
+    image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d",
   },
   {
     name: "Anatolia Grill",
@@ -36,7 +36,7 @@ export const staticRestaurants = [
     phone: "401234567",
     website: "http://anatoliagrill.fi/",
     timings: "12:00 pm - 11:00 pm",
-    image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a"
+    image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a",
   },
   {
     name: "Karachi Spice",
@@ -49,7 +49,8 @@ export const staticRestaurants = [
     phone: "409876543",
     website: "http://karachispice.fi/",
     timings: "11:00 am - 10:00 pm",
-    image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a"
+    image:
+      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80",
   },
   {
     name: "Dhaka Dine",
@@ -62,7 +63,7 @@ export const staticRestaurants = [
     phone: "408765432",
     website: "http://dhakadine.fi/",
     timings: "12:00 pm - 9:00 pm",
-    image: "https://images.unsplash.com/photo-1600891965053-3c3b1d6e9b8a"
+    image: "https://images.unsplash.com/photo-1600891965053-3c3b1d6e9b8a",
   },
   {
     name: "Istanbul Kebab House",
@@ -75,7 +76,7 @@ export const staticRestaurants = [
     phone: "407654321",
     website: "http://istanbulkebab.fi/",
     timings: "11:00 am - 11:00 pm",
-    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
   },
   {
     name: "Arabian Nights",
@@ -88,7 +89,7 @@ export const staticRestaurants = [
     phone: "406543210",
     website: "http://arabiannights.fi/",
     timings: "1:00 pm - 12:00 am",
-    image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a"
+    image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a",
   },
   {
     name: "Lahore Tandoor",
@@ -101,7 +102,8 @@ export const staticRestaurants = [
     phone: "405432109",
     website: "http://lahoretandoor.fi/",
     timings: "12:00 pm - 10:00 pm",
-    image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a"
+    image:
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
   },
   {
     name: "Dhaka Curry House",
@@ -114,7 +116,7 @@ export const staticRestaurants = [
     phone: "404321098",
     website: "http://dhakacurry.fi/",
     timings: "11:30 am - 9:30 pm",
-    image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d"
+    image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d",
   },
   {
     name: "Mecca Grill",
@@ -127,7 +129,7 @@ export const staticRestaurants = [
     phone: "403210987",
     website: "http://meccagrill.fi/",
     timings: "12:00 pm - 11:00 pm",
-    image: "https://images.unsplash.com/photo-1600891965053-3c3b1d6e9b8a"
+    image: "https://images.unsplash.com/photo-1600891965053-3c3b1d6e9b8a",
   },
   {
     name: "Damascus Delights",
@@ -140,7 +142,7 @@ export const staticRestaurants = [
     phone: "402109876",
     website: "http://damascusdelights.fi/",
     timings: "1:00 pm - 11:00 pm",
-    image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a"
+    image: "https://images.unsplash.com/photo-1606788075760-5c3b1d6e9b8a",
   },
   {
     name: "Turku Tikka",
@@ -153,7 +155,8 @@ export const staticRestaurants = [
     phone: "401098765",
     website: "http://turkutikka.fi/",
     timings: "12:00 pm - 10:00 pm",
-    image: "https://images.unsplash.com/photo-1601924582971-6a1f3f5f1f3a"
+    image:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
   },
   {
     name: "Gaziantep Grill",
@@ -166,7 +169,7 @@ export const staticRestaurants = [
     phone: "400987654",
     website: "http://gaziantepgrill.fi/",
     timings: "11:00 am - 11:00 pm",
-    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
   },
   {
     name: "Sylhet Spice",
@@ -179,6 +182,6 @@ export const staticRestaurants = [
     phone: "399876543",
     website: "http://sylhetspice.fi/",
     timings: "12:00 pm - 9:00 pm",
-    image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d"
+    image: "https://images.unsplash.com/photo-1555992336-03a23c4a3f1d",
   },
-]
+];

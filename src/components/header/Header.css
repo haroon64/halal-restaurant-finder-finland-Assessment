@@ -95,11 +95,11 @@
   padding: 8px 40px 8px 12px;
   border-radius: 20px;
   outline: none;
+  border: none;
   width: 220px;
 }
 
 .search-icon {
-  color: #555;
   font-size: 20px;
 }
 
